@@ -1,0 +1,181 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --color-primary: #040305;
+    --color-primary-light: #1c1a1f;
+    --color-primary-light--2: #685F75;
+    --color-primary-light--3: #2c2a30;
+    --color-primary-text: #F9EAFF;
+}
+
+body {
+    font-family: 'Inter tight', sans-serif;
+    height: 100vh;
+    padding: 8rem 10rem;
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
+    line-height: 1.2;
+}
+
+
+.head {
+    line-height: 1.5;
+}
+.head-title {
+    font-size: 4.5rem;
+}
+.head-paragraph {
+    font-size: 2.5rem;
+    color: var(--color-primary-light--2);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 8rem;
+}
+
+
+.faq-box {
+    width: 100%;
+    height: 10rem;
+    background-color: var(--color-primary-light);
+    border-radius: 2rem;
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: height .3s ease-in;
+    /* flex: 0.1; */
+}
+
+.faq-box--head {
+    font-size: 2rem;
+    margin: 2.5rem 0;
+}
+
+.plus-close,
+.plus-close::after {
+    position: fixed;
+}
+
+.plus-close,
+.plus-close::after {
+    width: 2rem;
+    height: 2px;
+    background-color: var(--color-primary-text);
+    display: inline-block;
+    position: absolute; 
+    right: 3rem;
+    top: 5.5rem;
+    transition: transform .9s
+}
+
+.plus-close::after {
+    content: "";
+    position: absolute;
+    right: -.1rem;
+    top: -.03rem;
+    transform: rotate(90deg);
+    z-index: 1;
+    transition: transform .9s;
+}
+
+.faq-box:hover {
+    background-color: var(--color-primary-light--3);
+}
+.faq-box:hover .plus-close {
+    background-color: orangered;
+}
+.faq-box:hover .plus-close::after {
+    background-color: orangered;
+}
+
+.divider {
+    width: 10rem;
+    height: 1px;
+    background-color: orangered;
+    display: block;
+}
+
+.faq-box.active {
+    height: auto; 
+    transition: height 0.3s ease-in-out ;
+}
+
+.faq-box.active .main-content {
+    display: block;
+}
+
+.main-content {
+    margin-bottom: 3rem;
+    display: none;
+}
+
+.main-content--paragraph {
+    font-size: 2.5rem;
+}
+
+
+@media (max-width: 40rem) {
+  
+    .head-title {
+        font-size: 3.5rem;
+    }
+ 
+    .faq-box{
+        padding: 1rem 0;
+        width: 100%;
+    }
+    .faq-box--head {
+        display: block;
+        margin: 0 auto; 
+        font-size: 1.3rem;
+        padding: 0 0 1rem 0;
+    }
+    .divider {
+        width: 10rem;
+        height: 1.5px;
+        display: block;
+        margin: 0 auto;
+    }
+    .plus-close {
+        display: none;
+    }
+    .main-content--paragraph {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 52rem) {
+  .head {
+        line-height: 1;
+        text-align: center;
+    }
+    .head-paragraph {
+        margin-top: 1.5rem;
+        font-size: 2rem;
+        color: var(--color-primary-light--2);
+    }
+    .faq-box{
+        padding: 3rem 2rem;
+    }
+    .plus-close {
+        display: none;
+    }
+}
